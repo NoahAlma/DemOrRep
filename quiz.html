@@ -1,0 +1,811 @@
+<!-- DEMOCRAT OR REPUBLICAN? -->
+
+<!doctype html>
+<html>
+    <head>
+        <title>
+            Democrat or Republican?
+        </title>
+        <meta property="og:title" content="Democrat or Republican?" />
+        <meta property="og:description" content="Is this person right or left leaning?"/>
+    </head>
+    <body>
+        <center>
+        <h1 id="title">
+            Democrat or Republican?
+        </h1>
+        <h1 id="endingTitle"></h1>
+        <p id="endingP"></p>
+        <div id="endingButton"></div>
+            <!-- DIV FOR JAVASCRIPT START -->
+            <div id="div">
+                <!-- DIV FOR JAVASCRIPT INSIDE -->
+            </div>
+            <!-- DIV FOR JAVASCRIPT END -->
+            <p id="paragraph">
+            Guess whether the person is a democrat or republican
+            </p>
+        <br>
+        <button id="startButton" onclick="start()">Start!</button>
+        <div id="buttondiv"></div>
+        <br>
+        <div id="buttondiv2"></div>
+        <div id="trueorfalse"></div>
+        <div id="continuebuttondiv"></div>
+        <hr>
+        <footer id="footer"></footer>
+        </center>
+        <footer>Made by Noah Hinsdale</footer>
+    </body>
+</html>
+
+<!-- JAVASCRIPT -->
+
+<script>
+    score = 0
+    function start() {
+        document.getElementById("footer").innerText = `Current score: ${score}/10`
+        let dembutton
+        let repbutton
+        // REMOVE EVERYTHING
+        const title = document.getElementById("title")
+        const paragraph = document.getElementById("paragraph")
+        const startButton = document.getElementById("startButton")
+        title.remove(); paragraph.remove(); startButton.remove()
+
+        const buttondiv2 = document.getElementById("buttondiv2")
+        const buttondiv = document.getElementById("buttondiv")
+        const trueorfalse = document.getElementById("trueorfalse")
+        const continuebuttondiv = document.getElementById("continuebuttondiv")
+
+        // ADD IMAGE AND BUTTON 1
+        const image1 = document.createElement("img")
+        image1.setAttribute("id", "img1")
+        image1.setAttribute("src", "https://static.onecms.io/wp-content/uploads/sites/20/2020/06/26/robert-regan.jpg")
+        image1.setAttribute("height", "400");
+        image1.setAttribute("width", "700");
+        document.getElementById("div").appendChild(image1)
+
+        const dem1 = document.createElement("button")
+        dem1.setAttribute("id", "dem1")
+        dem1.innerText = "Democrat"
+        let count = 0
+        dem1.onclick = function democrat1() {
+            count += 1
+            if (count > 1) return
+            const demtext1 = document.createElement("p")
+            demtext1.innerText = "Wrong! This person is republican politician Robert Regan."
+            demtext1.setAttribute("id", "demtext1")
+            trueorfalse.appendChild(demtext1)
+            dembutton = document.createElement("button")
+            dembutton.setAttribute("id", "dembtn1")
+            dembutton.innerText = "Continue"
+            dembutton.onclick = second
+            
+            setTimeout(() => { 
+                continuebuttondiv.appendChild(dembutton) 
+            }, 2000)
+        }
+        const rep1 = document.createElement("button")
+        rep1.setAttribute("id", "rep1")
+        rep1.innerText = "Republican"
+        rep1.onclick = function republican1() {
+            count += 1
+            if (count > 1) return 
+            const reptext1 = document.createElement("p")
+            reptext1.setAttribute("id", "reptext1")
+            reptext1.innerText = "Correct! This person is republican politician Robert Regan."
+            trueorfalse.appendChild(reptext1)
+            repbutton = document.createElement("button")
+            repbutton.setAttribute("id", "repbtn1")
+            repbutton.innerText = "Continue"
+            repbutton.onclick = second
+            
+            setTimeout(() => { 
+                continuebuttondiv.appendChild(repbutton) 
+            }, 2000)
+            score += 1
+            document.getElementById("footer").innerText = `Current score: ${score}/10`
+        }
+        buttondiv.appendChild(dem1)
+        buttondiv2.appendChild(rep1)
+    }
+
+    function second() {
+        let dembutton
+        let repbutton
+        // REMOVE EVERYTHING
+        const title = document.getElementById("title")
+        const paragraph = document.getElementById("paragraph")
+        const startButton = document.getElementById("startButton")
+
+        document.getElementById("img1").remove(); 
+        document.getElementById("dem1").remove(); 
+        document.getElementById("rep1").remove(); 
+        if (document.getElementById("dembtn1")) document.getElementById("dembtn1").remove();
+        if (document.getElementById("repbtn1")) document.getElementById("repbtn1").remove();
+        if (document.getElementById("demtext1")) document.getElementById("demtext1").remove();
+        if (document.getElementById("reptext1")) document.getElementById("reptext1").remove();
+
+        const buttondiv2 = document.getElementById("buttondiv2")
+        const buttondiv = document.getElementById("buttondiv")
+        const trueorfalse = document.getElementById("trueorfalse")
+        const continuebuttondiv = document.getElementById("continuebuttondiv")
+
+        // ADD IMAGE AND BUTTON 1
+
+        const image1 = document.createElement("img")
+        image1.setAttribute("id", "img2")
+        image1.setAttribute("src", "https://s.abcnews.com/images/GMA/190329_gma_moran1_hpMain_16x9_992.jpg")
+        image1.setAttribute("height", "400");
+        image1.setAttribute("width", "700");
+        document.getElementById("div").appendChild(image1)
+
+        const dem1 = document.createElement("button")
+        dem1.setAttribute("id", "dem2")
+        dem1.innerText = "Democrat"
+        let count = 0
+        dem1.onclick = function democrat1() {
+            count += 1
+            if (count > 1) return
+            const demtext1 = document.createElement("p")
+            demtext1.setAttribute("id", "demtext2")
+            demtext1.innerText = "Wrong! This person is republican Donald Trump. How TF did you get this wrong?"
+            trueorfalse.appendChild(demtext1)
+            dembutton = document.createElement("button")
+            dembutton.setAttribute("id", "dembtn2")
+            dembutton.innerText = "Continue"
+            dembutton.onclick = third
+            
+            setTimeout(() => { 
+                continuebuttondiv.appendChild(dembutton) 
+            }, 2000)
+        }
+        const rep1 = document.createElement("button")
+        rep1.setAttribute("id", "rep2")
+        rep1.innerText = "Republican"
+        rep1.onclick = function republican1() {
+            count += 1
+            if (count > 1) return 
+            const reptext1 = document.createElement("p")
+            reptext1.setAttribute("id", "reptext2")
+            reptext1.innerText = "Correct! This person is republican Donald Trump."
+            score += 1
+            document.getElementById("footer").innerText = `Current score: ${score}/10`
+            trueorfalse.appendChild(reptext1)
+            repbutton = document.createElement("button")
+            repbutton.setAttribute("id", "repbtn2")
+            repbutton.innerText = "Continue"
+            repbutton.onclick = third
+            
+            setTimeout(() => { 
+                continuebuttondiv.appendChild(repbutton) 
+            }, 2000)
+        }
+        buttondiv.appendChild(dem1)
+        buttondiv2.appendChild(rep1)
+    }
+
+    function third() {
+        let dembutton
+        let repbutton
+        // REMOVE EVERYTHING
+        const title = document.getElementById("title")
+        const paragraph = document.getElementById("paragraph")
+        const startButton = document.getElementById("startButton")
+
+        document.getElementById("img2").remove(); 
+        document.getElementById("dem2").remove(); 
+        document.getElementById("rep2").remove(); 
+        if (document.getElementById("dembtn2")) document.getElementById("dembtn2").remove();
+        if (document.getElementById("repbtn2")) document.getElementById("repbtn2").remove();
+        if (document.getElementById("demtext2")) document.getElementById("demtext2").remove();
+        if (document.getElementById("reptext2")) document.getElementById("reptext2").remove();
+
+        const buttondiv2 = document.getElementById("buttondiv2")
+        const buttondiv = document.getElementById("buttondiv")
+        const trueorfalse = document.getElementById("trueorfalse")
+        const continuebuttondiv = document.getElementById("continuebuttondiv")
+
+        // ADD IMAGE AND BUTTON 1
+
+        const image1 = document.createElement("img")
+        image1.setAttribute("id", "img3")
+        image1.setAttribute("src", "https://media.gq.com/photos/5ba12c2b5af88074e89359d9/16:9/w_2560%2Cc_limit/The-Last-Holdout-In-Trump-Country-GQ-Oct-101118-01.jpg.jpg")
+        image1.setAttribute("height", "400");
+        image1.setAttribute("width", "700");
+        document.getElementById("div").appendChild(image1)
+
+        const dem1 = document.createElement("button")
+        dem1.setAttribute("id", "dem3")
+        dem1.innerText = "Democrat"
+        let count = 0
+        dem1.onclick = function democrat1() {
+            count += 1
+            if (count > 1) return
+            const demtext1 = document.createElement("p")
+            demtext1.setAttribute("id", "demtext3")
+            demtext1.innerText = "Correct! This person is democratic senator Joe Manchin."
+            score += 1
+            document.getElementById("footer").innerText = `Current score: ${score}/10`
+            trueorfalse.appendChild(demtext1)
+            dembutton = document.createElement("button")
+            dembutton.setAttribute("id", "dembtn3")
+            dembutton.innerText = "Continue"
+            dembutton.onclick = fourth
+            
+            setTimeout(() => { 
+                continuebuttondiv.appendChild(dembutton) 
+            }, 2000)
+        }
+        const rep1 = document.createElement("button")
+        rep1.setAttribute("id", "rep3")
+        rep1.innerText = "Republican"
+        rep1.onclick = function republican1() {
+            count += 1
+            if (count > 1) return 
+            const reptext1 = document.createElement("p")
+            reptext1.setAttribute("id", "reptext3")
+            reptext1.innerText = "Wrong! This person is democratic senator Joe Manchin."
+            trueorfalse.appendChild(reptext1)
+            repbutton = document.createElement("button")
+            repbutton.setAttribute("id", "repbtn3")
+            repbutton.innerText = "Continue"
+            repbutton.onclick = fourth
+            
+            setTimeout(() => { 
+                continuebuttondiv.appendChild(repbutton) 
+            }, 2000)
+        }
+        buttondiv.appendChild(dem1)
+        buttondiv2.appendChild(rep1)
+    }
+
+    function fourth() {
+        let dembutton
+        let repbutton
+        // REMOVE EVERYTHING
+        const title = document.getElementById("title")
+        const paragraph = document.getElementById("paragraph")
+        const startButton = document.getElementById("startButton")
+
+        document.getElementById("img3").remove(); 
+        document.getElementById("dem3").remove(); 
+        document.getElementById("rep3").remove(); 
+        if (document.getElementById("dembtn3")) document.getElementById("dembtn3").remove();
+        if (document.getElementById("repbtn3")) document.getElementById("repbtn3").remove();
+        if (document.getElementById("demtext3")) document.getElementById("demtext3").remove();
+        if (document.getElementById("reptext3")) document.getElementById("reptext3").remove();
+
+        const buttondiv2 = document.getElementById("buttondiv2")
+        const buttondiv = document.getElementById("buttondiv")
+        const trueorfalse = document.getElementById("trueorfalse")
+        const continuebuttondiv = document.getElementById("continuebuttondiv")
+
+        // ADD IMAGE AND BUTTON 1
+
+        const image1 = document.createElement("img")
+        image1.setAttribute("id", "img4")
+        image1.setAttribute("src", "https://www.cityandstateny.com/sites/default/files/stefanik-2-april-greer.jpg")
+        image1.setAttribute("height", "400");
+        image1.setAttribute("width", "700");
+        document.getElementById("div").appendChild(image1)
+
+        const dem1 = document.createElement("button")
+        dem1.setAttribute("id", "dem4")
+        dem1.innerText = "Democrat"
+        let count = 0
+        dem1.onclick = function democrat1() {
+            count += 1
+            if (count > 1) return
+            const demtext1 = document.createElement("p")
+            demtext1.setAttribute("id", "demtext4")
+            demtext1.innerText = "Wrong! This person is republican rep. Elise Stefanik."
+            trueorfalse.appendChild(demtext1)
+            dembutton = document.createElement("button")
+            dembutton.setAttribute("id", "dembtn4")
+            dembutton.innerText = "Continue"
+            dembutton.onclick = fifth
+            
+            setTimeout(() => { 
+                continuebuttondiv.appendChild(dembutton) 
+            }, 2000)
+        }
+        const rep1 = document.createElement("button")
+        rep1.setAttribute("id", "rep4")
+        rep1.innerText = "Republican"
+        rep1.onclick = function republican1() {
+            count += 1
+            if (count > 1) return 
+            const reptext1 = document.createElement("p")
+            reptext1.setAttribute("id", "reptext4")
+            reptext1.innerText = "Correct! This person is republican rep. Elise Stefanik."
+            score += 1
+            document.getElementById("footer").innerText = `Current score: ${score}/10`
+            trueorfalse.appendChild(reptext1)
+            repbutton = document.createElement("button")
+            repbutton.setAttribute("id", "repbtn4")
+            repbutton.innerText = "Continue"
+            repbutton.onclick = fifth
+            
+            setTimeout(() => { 
+                continuebuttondiv.appendChild(repbutton) 
+            }, 2000)
+        }
+        buttondiv.appendChild(dem1)
+        buttondiv2.appendChild(rep1)
+    }
+
+    function fifth() {
+        let dembutton
+        let repbutton
+        // REMOVE EVERYTHING
+        const title = document.getElementById("title")
+        const paragraph = document.getElementById("paragraph")
+        const startButton = document.getElementById("startButton")
+
+        document.getElementById("img4").remove(); 
+        document.getElementById("dem4").remove(); 
+        document.getElementById("rep4").remove(); 
+        if (document.getElementById("dembtn4")) document.getElementById("dembtn4").remove();
+        if (document.getElementById("repbtn4")) document.getElementById("repbtn4").remove();
+        if (document.getElementById("demtext4")) document.getElementById("demtext4").remove();
+        if (document.getElementById("reptext4")) document.getElementById("reptext4").remove();
+
+        const buttondiv2 = document.getElementById("buttondiv2")
+        const buttondiv = document.getElementById("buttondiv")
+        const trueorfalse = document.getElementById("trueorfalse")
+        const continuebuttondiv = document.getElementById("continuebuttondiv")
+
+        // ADD IMAGE AND BUTTON 1
+
+        const image1 = document.createElement("img")
+        image1.setAttribute("id", "img4")
+        image1.setAttribute("src", "https://www.gannett-cdn.com/presto/2019/09/18/USAT/7a1bebf2-689e-4fef-a58d-80c1983da031-AP_Democratic_Donor_Death_Deaths.JPG")
+        image1.setAttribute("height", "400");
+        image1.setAttribute("width", "700");
+        document.getElementById("div").appendChild(image1)
+
+        const dem1 = document.createElement("button")
+        dem1.setAttribute("id", "dem4")
+        dem1.innerText = "Democrat"
+        let count = 0
+        dem1.onclick = function democrat1() {
+            count += 1
+            if (count > 1) return
+            const demtext1 = document.createElement("p")
+            demtext1.setAttribute("id", "demtext4")
+            demtext1.innerText = "Correct! This person is democratic businessman Ed Buck."
+            score += 1
+            document.getElementById("footer").innerText = `Current score: ${score}/10`
+            trueorfalse.appendChild(demtext1)
+            dembutton = document.createElement("button")
+            dembutton.setAttribute("id", "dembtn4")
+            dembutton.innerText = "Continue"
+            dembutton.onclick = sixth
+            
+            setTimeout(() => { 
+                continuebuttondiv.appendChild(dembutton) 
+            }, 2000)
+        }
+        const rep1 = document.createElement("button")
+        rep1.setAttribute("id", "rep4")
+        rep1.innerText = "Republican"
+        rep1.onclick = function republican1() {
+            count += 1
+            if (count > 1) return 
+            const reptext1 = document.createElement("p")
+            reptext1.setAttribute("id", "reptext4")
+            reptext1.innerText = "Wrong! This person is democratic businessman Ed Buck."
+            trueorfalse.appendChild(reptext1)
+            repbutton = document.createElement("button")
+            repbutton.setAttribute("id", "repbtn4")
+            repbutton.innerText = "Continue"
+            repbutton.onclick = sixth
+            
+            setTimeout(() => { 
+                continuebuttondiv.appendChild(repbutton) 
+            }, 2000)
+        }
+        buttondiv.appendChild(dem1)
+        buttondiv2.appendChild(rep1)
+    }
+
+    function sixth() {
+        let dembutton
+        let repbutton
+        // REMOVE EVERYTHING
+        const title = document.getElementById("title")
+        const paragraph = document.getElementById("paragraph")
+        const startButton = document.getElementById("startButton")
+
+        document.getElementById("img4").remove(); 
+        document.getElementById("dem4").remove(); 
+        document.getElementById("rep4").remove(); 
+        if (document.getElementById("dembtn4")) document.getElementById("dembtn4").remove();
+        if (document.getElementById("repbtn4")) document.getElementById("repbtn4").remove();
+        if (document.getElementById("demtext4")) document.getElementById("demtext4").remove();
+        if (document.getElementById("reptext4")) document.getElementById("reptext4").remove();
+
+        const buttondiv2 = document.getElementById("buttondiv2")
+        const buttondiv = document.getElementById("buttondiv")
+        const trueorfalse = document.getElementById("trueorfalse")
+        const continuebuttondiv = document.getElementById("continuebuttondiv")
+
+        // ADD IMAGE AND BUTTON 1
+
+        const image1 = document.createElement("img")
+        image1.setAttribute("id", "img4")
+        image1.setAttribute("src", "https://www.gannett-cdn.com/-mm-/3084891cf5df6d3a02313bcc0af01e1ddf8b8be1/c=0-25-716-979/local/-/media/2017/02/26/WIGroup/Milwaukee/636237082071186755-jasonrae.jpg?width=300&height=400&fit=crop&format=pjpg&auto=webp")
+        image1.setAttribute("height", "400");
+        image1.setAttribute("width", "575");
+        document.getElementById("div").appendChild(image1)
+
+        const dem1 = document.createElement("button")
+        dem1.setAttribute("id", "dem4")
+        dem1.innerText = "Democrat"
+        let count = 0
+        dem1.onclick = function democrat1() {
+            count += 1
+            if (count > 1) return
+            const demtext1 = document.createElement("p")
+            demtext1.setAttribute("id", "demtext4")
+            demtext1.innerText = "Correct! This person is DNC secretary Jason Rae."
+            score += 1
+            document.getElementById("footer").innerText = `Current score: ${score}/10`
+            trueorfalse.appendChild(demtext1)
+            dembutton = document.createElement("button")
+            dembutton.setAttribute("id", "dembtn4")
+            dembutton.innerText = "Continue"
+            dembutton.onclick = seventh
+            
+            setTimeout(() => { 
+                continuebuttondiv.appendChild(dembutton) 
+            }, 2000)
+        }
+        const rep1 = document.createElement("button")
+        rep1.setAttribute("id", "rep4")
+        rep1.innerText = "Republican"
+        rep1.onclick = function republican1() {
+            count += 1
+            if (count > 1) return 
+            const reptext1 = document.createElement("p")
+            reptext1.setAttribute("id", "reptext4")
+            reptext1.innerText = "Wrong! This person is DNC secretary Jason Rae."
+            trueorfalse.appendChild(reptext1)
+            repbutton = document.createElement("button")
+            repbutton.setAttribute("id", "repbtn4")
+            repbutton.innerText = "Continue"
+            repbutton.onclick = seventh
+            
+            setTimeout(() => { 
+                continuebuttondiv.appendChild(repbutton) 
+            }, 2000)
+        }
+        buttondiv.appendChild(dem1)
+        buttondiv2.appendChild(rep1)
+    }
+
+    function seventh() {
+        let dembutton
+        let repbutton
+        // REMOVE EVERYTHING
+        const title = document.getElementById("title")
+        const paragraph = document.getElementById("paragraph")
+        const startButton = document.getElementById("startButton")
+
+        document.getElementById("img4").remove(); 
+        document.getElementById("dem4").remove(); 
+        document.getElementById("rep4").remove(); 
+        if (document.getElementById("dembtn4")) document.getElementById("dembtn4").remove();
+        if (document.getElementById("repbtn4")) document.getElementById("repbtn4").remove();
+        if (document.getElementById("demtext4")) document.getElementById("demtext4").remove();
+        if (document.getElementById("reptext4")) document.getElementById("reptext4").remove();
+
+        const buttondiv2 = document.getElementById("buttondiv2")
+        const buttondiv = document.getElementById("buttondiv")
+        const trueorfalse = document.getElementById("trueorfalse")
+        const continuebuttondiv = document.getElementById("continuebuttondiv")
+
+        // ADD IMAGE AND BUTTON 1
+
+        const image1 = document.createElement("img")
+        image1.setAttribute("id", "img4")
+        image1.setAttribute("src", "https://npr.brightspotcdn.com/dims4/default/54fef46/2147483647/strip/true/crop/1632x857+0+184/resize/1200x630!/quality/90/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2Flegacy%2Fsites%2Fkwmu%2Ffiles%2F201908%2FPerson3.jpg")
+        image1.setAttribute("height", "400");
+        image1.setAttribute("width", "700");
+        document.getElementById("div").appendChild(image1)
+
+        const dem1 = document.createElement("button")
+        dem1.setAttribute("id", "dem4")
+        dem1.innerText = "Democrat"
+        let count = 0
+        dem1.onclick = function democrat1() {
+            count += 1
+            if (count > 1) return
+            const demtext1 = document.createElement("p")
+            demtext1.setAttribute("id", "demtext4")
+            demtext1.innerText = "Correct! This person is democratic rep. Michael Person."
+            score += 1
+            document.getElementById("footer").innerText = `Current score: ${score}/10`
+            trueorfalse.appendChild(demtext1)
+            dembutton = document.createElement("button")
+            dembutton.setAttribute("id", "dembtn4")
+            dembutton.innerText = "Continue"
+            dembutton.onclick = eigth
+            
+            setTimeout(() => { 
+                continuebuttondiv.appendChild(dembutton) 
+            }, 2000)
+        }
+        const rep1 = document.createElement("button")
+        rep1.setAttribute("id", "rep4")
+        rep1.innerText = "Republican"
+        rep1.onclick = function republican1() {
+            count += 1
+            if (count > 1) return 
+            const reptext1 = document.createElement("p")
+            reptext1.setAttribute("id", "reptext4")
+            reptext1.innerText = "Wrong! This person is democratic rep Michael Person."
+            trueorfalse.appendChild(reptext1)
+            repbutton = document.createElement("button")
+            repbutton.setAttribute("id", "repbtn4")
+            repbutton.innerText = "Continue"
+            repbutton.onclick = eigth
+            
+            setTimeout(() => { 
+                continuebuttondiv.appendChild(repbutton) 
+            }, 2000)
+        }
+        buttondiv.appendChild(dem1)
+        buttondiv2.appendChild(rep1)
+    }
+
+    function eigth() {
+        let dembutton
+        let repbutton
+        // REMOVE EVERYTHING
+        const title = document.getElementById("title")
+        const paragraph = document.getElementById("paragraph")
+        const startButton = document.getElementById("startButton")
+
+        document.getElementById("img4").remove(); 
+        document.getElementById("dem4").remove(); 
+        document.getElementById("rep4").remove(); 
+        if (document.getElementById("dembtn4")) document.getElementById("dembtn4").remove();
+        if (document.getElementById("repbtn4")) document.getElementById("repbtn4").remove();
+        if (document.getElementById("demtext4")) document.getElementById("demtext4").remove();
+        if (document.getElementById("reptext4")) document.getElementById("reptext4").remove();
+
+        const buttondiv2 = document.getElementById("buttondiv2")
+        const buttondiv = document.getElementById("buttondiv")
+        const trueorfalse = document.getElementById("trueorfalse")
+        const continuebuttondiv = document.getElementById("continuebuttondiv")
+
+        // ADD IMAGE AND BUTTON 1
+
+        const image1 = document.createElement("img")
+        image1.setAttribute("id", "img4")
+        image1.setAttribute("src", "https://www.wbtv.com/resizer/oo1RTzT2ZdmRvxx-OzdiJyEB9rE=/1200x900/cloudfront-us-east-1.images.arcpublishing.com/raycom/OWU2NHKA3ZDERHK5COBCZSAQLU.jpg")
+        image1.setAttribute("height", "400");
+        image1.setAttribute("width", "700");
+        document.getElementById("div").appendChild(image1)
+
+        const dem1 = document.createElement("button")
+        dem1.setAttribute("id", "dem4")
+        dem1.innerText = "Democrat"
+        let count = 0
+        dem1.onclick = function democrat1() {
+            count += 1
+            if (count > 1) return
+            const demtext1 = document.createElement("p")
+            demtext1.setAttribute("id", "demtext4")
+            demtext1.innerText = "Wrong! This person is republican rep. Madison Cawthorn"
+            trueorfalse.appendChild(demtext1)
+            dembutton = document.createElement("button")
+            dembutton.setAttribute("id", "dembtn4")
+            dembutton.innerText = "Continue"
+            dembutton.onclick = ninth
+            
+            setTimeout(() => { 
+                continuebuttondiv.appendChild(dembutton) 
+            }, 2000)
+        }
+        const rep1 = document.createElement("button")
+        rep1.setAttribute("id", "rep4")
+        rep1.innerText = "Republican"
+        rep1.onclick = function republican1() {
+            count += 1
+            if (count > 1) return 
+            const reptext1 = document.createElement("p")
+            reptext1.setAttribute("id", "reptext4")
+            reptext1.innerText = "Correct! This person is republican rep. Madison Cawthorn."
+            score += 1
+            document.getElementById("footer").innerText = `Current score: ${score}/10`
+            trueorfalse.appendChild(reptext1)
+            repbutton = document.createElement("button")
+            repbutton.setAttribute("id", "repbtn4")
+            repbutton.innerText = "Continue"
+            repbutton.onclick = ninth
+            
+            setTimeout(() => { 
+                continuebuttondiv.appendChild(repbutton) 
+            }, 2000)
+        }
+        buttondiv.appendChild(dem1)
+        buttondiv2.appendChild(rep1)
+    }
+
+    function ninth() {
+        let dembutton
+        let repbutton
+        // REMOVE EVERYTHING
+        const title = document.getElementById("title")
+        const paragraph = document.getElementById("paragraph")
+        const startButton = document.getElementById("startButton")
+
+        document.getElementById("img4").remove(); 
+        document.getElementById("dem4").remove(); 
+        document.getElementById("rep4").remove(); 
+        if (document.getElementById("dembtn4")) document.getElementById("dembtn4").remove();
+        if (document.getElementById("repbtn4")) document.getElementById("repbtn4").remove();
+        if (document.getElementById("demtext4")) document.getElementById("demtext4").remove();
+        if (document.getElementById("reptext4")) document.getElementById("reptext4").remove();
+
+        const buttondiv2 = document.getElementById("buttondiv2")
+        const buttondiv = document.getElementById("buttondiv")
+        const trueorfalse = document.getElementById("trueorfalse")
+        const continuebuttondiv = document.getElementById("continuebuttondiv")
+
+        // ADD IMAGE AND BUTTON 1
+
+        const image1 = document.createElement("img")
+        image1.setAttribute("id", "img4")
+        image1.setAttribute("src", "https://assets.teenvogue.com/photos/5b1a9706b4a2e66e33b0ab36/16:9/w_2560%2Cc_limit/Lede.jpg")
+        image1.setAttribute("height", "400");
+        image1.setAttribute("width", "700");
+        document.getElementById("div").appendChild(image1)
+
+        const dem1 = document.createElement("button")
+        dem1.setAttribute("id", "dem4")
+        dem1.innerText = "Democrat"
+        let count = 0
+        dem1.onclick = function democrat1() {
+            count += 1
+            if (count > 1) return
+            const demtext1 = document.createElement("p")
+            demtext1.setAttribute("id", "demtext4")
+            demtext1.innerText = "Correct! This person is democratic politician Richard Madaleno."
+            score += 1
+            document.getElementById("footer").innerText = `Current score: ${score}/10`
+            trueorfalse.appendChild(demtext1)
+            dembutton = document.createElement("button")
+            dembutton.setAttribute("id", "dembtn4")
+            dembutton.innerText = "Continue"
+            dembutton.onclick = tenth
+            
+            setTimeout(() => { 
+                continuebuttondiv.appendChild(dembutton) 
+            }, 2000)
+        }
+        const rep1 = document.createElement("button")
+        rep1.setAttribute("id", "rep4")
+        rep1.innerText = "Republican"
+        rep1.onclick = function republican1() {
+            count += 1
+            if (count > 1) return 
+            const reptext1 = document.createElement("p")
+            reptext1.setAttribute("id", "reptext4")
+            reptext1.innerText = "Wrong! This person is democratic politician Richard Madaleno."
+            trueorfalse.appendChild(reptext1)
+            repbutton = document.createElement("button")
+            repbutton.setAttribute("id", "repbtn4")
+            repbutton.innerText = "Continue"
+            repbutton.onclick = tenth
+            
+            setTimeout(() => { 
+                continuebuttondiv.appendChild(repbutton) 
+            }, 2000)
+        }
+        buttondiv.appendChild(dem1)
+        buttondiv2.appendChild(rep1)
+    }
+
+    function tenth() {
+        let dembutton
+        let repbutton
+        // REMOVE EVERYTHING
+        const title = document.getElementById("title")
+        const paragraph = document.getElementById("paragraph")
+        const startButton = document.getElementById("startButton")
+
+        document.getElementById("img4").remove(); 
+        document.getElementById("dem4").remove(); 
+        document.getElementById("rep4").remove(); 
+        if (document.getElementById("dembtn4")) document.getElementById("dembtn4").remove();
+        if (document.getElementById("repbtn4")) document.getElementById("repbtn4").remove();
+        if (document.getElementById("demtext4")) document.getElementById("demtext4").remove();
+        if (document.getElementById("reptext4")) document.getElementById("reptext4").remove();
+
+        const buttondiv2 = document.getElementById("buttondiv2")
+        const buttondiv = document.getElementById("buttondiv")
+        const trueorfalse = document.getElementById("trueorfalse")
+        const continuebuttondiv = document.getElementById("continuebuttondiv")
+
+        // ADD IMAGE AND BUTTON 1
+
+        const image1 = document.createElement("img")
+        image1.setAttribute("id", "img4")
+        image1.setAttribute("src", "https://www.courant.com/resizer/o0piOYyMQ9zUbJWNFTZKnR8mYpE=/415x276/top/cloudfront-us-east-1.images.arcpublishing.com/tronc/FKUJT3I3GVG2PLAIJDHCSNPKYE.jpg")
+        image1.setAttribute("height", "400");
+        image1.setAttribute("width", "700");
+        document.getElementById("div").appendChild(image1)
+
+        const dem1 = document.createElement("button")
+        dem1.setAttribute("id", "dem4")
+        dem1.innerText = "Democrat"
+        let count = 0
+        dem1.onclick = function democrat1() {
+            count += 1
+            if (count > 1) return
+            const demtext1 = document.createElement("p")
+            demtext1.setAttribute("id", "demtext4")
+            demtext1.innerText = "Wrong! This person is republican chairman of Connecticut J.R. Romano."
+            trueorfalse.appendChild(demtext1)
+            dembutton = document.createElement("button")
+            dembutton.setAttribute("id", "dembtn4")
+            dembutton.innerText = "Continue"
+            dembutton.onclick = finished
+            
+            setTimeout(() => { 
+                continuebuttondiv.appendChild(dembutton) 
+            }, 2000)
+        }
+        const rep1 = document.createElement("button")
+        rep1.setAttribute("id", "rep4")
+        rep1.innerText = "Republican"
+        rep1.onclick = function republican1() {
+            count += 1
+            if (count > 1) return 
+            const reptext1 = document.createElement("p")
+            reptext1.setAttribute("id", "reptext4")
+            reptext1.innerText = "Correct! This person is republican chairman of Connecticut J.R. Romano."
+            score += 1
+            document.getElementById("footer").innerText = `Current score: ${score}/10`
+            trueorfalse.appendChild(reptext1)
+            repbutton = document.createElement("button")
+            repbutton.setAttribute("id", "repbtn4")
+            repbutton.innerText = "Continue"
+            repbutton.onclick = finished
+            
+            setTimeout(() => { 
+                continuebuttondiv.appendChild(repbutton) 
+            }, 2000)
+        }
+        buttondiv.appendChild(dem1)
+        buttondiv2.appendChild(rep1)
+    }
+
+    function finished() {
+        document.getElementById("img4").remove(); 
+        document.getElementById("dem4").remove(); 
+        document.getElementById("rep4").remove(); 
+        if (document.getElementById("dembtn4")) document.getElementById("dembtn4").remove();
+        if (document.getElementById("repbtn4")) document.getElementById("repbtn4").remove();
+        if (document.getElementById("demtext4")) document.getElementById("demtext4").remove();
+        if (document.getElementById("reptext4")) document.getElementById("reptext4").remove();
+        document.getElementById("footer").remove();
+
+        document.getElementById("endingTitle").innerText = `Final score: ${score}/10`
+        document.getElementById("endingP").innerText = score <= 5 ? "Not bad... try again!" : "Great job!"
+        const enddiv = document.getElementById("endingButton")
+        const endp = document.createElement("p")
+        endp.innerHTML = "<p>Click <a onclick='backToHome()' href='#'>here</a> to go back to the homepage.</p>"
+        enddiv.appendChild(endp)
+    }
+
+    function backToHome() {
+        document.querySelector('html').innerHTML = `<html> <head> <title> Democrat or Republican? </title> <meta property="og:title" content="Democrat or Republican?" /> <meta property="og:description" content="Is this person right or left leaning?"/> </head> <body> <center> <h1 id="title"> Democrat or Republican? </h1> <h1 id="endingTitle"></h1> <p id="endingP"></p> <div id="endingButton"></div> <!-- DIV FOR JAVASCRIPT START --> <div id="div"> <!-- DIV FOR JAVASCRIPT INSIDE --> </div> <!-- DIV FOR JAVASCRIPT END --> <p id="paragraph"> Guess whether the person is a democrat or republican </p> <br> <button id="startButton" onclick="start()">Start!</button> <div id="buttondiv"></div> <br> <div id="buttondiv2"></div> <div id="trueorfalse"></div> <div id="continuebuttondiv"></div> <hr> <footer id="footer"></footer> </center> <footer>Made by Noah Hinsdale</footer> </body></html>`
+        score = 0
+    }
+</script>
